@@ -1,0 +1,19 @@
+---
+extends: base.j2
+default_block: main
+background_image: http://i.huffpost.com/gen/1680722/thumbs/o-FRED-PHELPS-facebook.jpg
+title: Fred Phelps
+description: A 10 part series on the impact of Fred Phelps.
+---
+
+{% for res in site.content.walk_resources_sorted_by_part() %}
+<h2>
+  <small>part {{res.meta.part}}</small>
+  <a href='{{ res.full_url|replace('index.html', '') }}'>{{ res.meta.title }}</a>
+</h2>
+
+{{ res.meta.description }}
+{% endfor %}
+
+
+

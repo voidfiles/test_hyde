@@ -1,0 +1,141 @@
+// Core variables and mixins
+$headings-font-family:    Raleway;
+$headings-font-weight:    300;
+
+// Extra small screen / phone
+// Note: Deprecated $screen-xs and $screen-phone as of v3.0.1
+$screen-xs:                  480px;
+
+// Small screen / tablet
+// Note: Deprecated $screen-sm and $screen-tablet as of v3.0.1
+$screen-sm:                  768px;
+
+// Medium screen / desktop
+// Note: Deprecated $screen-md and $screen-desktop as of v3.0.1
+$screen-md:                  768px;
+
+// Large screen / wide desktop
+// Note: Deprecated $screen-lg and $screen-lg-desktop as of v3.0.1
+$screen-lg:                  768px;
+
+//## Define the maximum width of `.container` for different screen sizes.
+$grid-gutter-width: 30px;
+
+// Small screen / tablet
+$container-tablet:             ((720px + $grid-gutter-width));
+
+// Medium screen / desktop
+$container-desktop:            ((720px + $grid-gutter-width));
+
+// Large screen / wide desktop
+$container-large-desktop:      ((720px + $grid-gutter-width));
+$font-size-base: 16px;
+
+@import "bootstrap/variables";
+
+@import "bootstrap/mixins";
+
+// Reset
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/code";
+/*// @import "bootstrap/grid";*/
+
+
+.container {
+  @include container-fixed();
+
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+/*@import "bootstrap/tables";
+@import "bootstrap/forms";*/
+@import "bootstrap/buttons";
+
+// Components
+/*@import "bootstrap/component-animations";
+@import "bootstrap/glyphicons";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";*/
+@import "bootstrap/jumbotron";
+/*@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/wells";
+@import "bootstrap/close";*/
+
+// Components w/ JavaScript
+/*@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+@import "bootstrap/carousel";*/
+
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+
+blockquote {
+  width: 40%;
+  margin-left: 10%;
+  float: right;
+  @media (max-width: $screen-xs) {
+    width: auto;
+    margin: 0;
+    float: none;
+  }
+}
+
+
+.header {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    color: #fff;
+    .container {
+        .jumbotron {
+            background-color: transparent;
+            padding-left: 0;
+            h1 {
+              font-weight: 100;
+            }
+        }
+    }
+
+    @media (max-width: $screen-xs) {
+      height: 200px;
+      padding-right: 50px;
+      font-size: 90%;
+    }
+
+    @media (max-width: 900px) {
+      height: 300px;
+    }
+}
+
+

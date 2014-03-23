@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  {% block starthead %}{% endblock starthead %}
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="{{ resource.meta.compatibility }}">
+
+  <title>{% block title %}{{ resource.meta.title }}{% endblock %}</title>
+  <meta name="description" content="{{ resource.meta.description }}">
+  <meta name="author" content="{{ resource.meta.author }}">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% block favicons %}
+  <link rel="shortcut icon" href="{{ media_url('/favicon.ico') }}">
+  <link rel="apple-touch-icon" href="{{ media_url('/apple-touch-icon.png') }}">
+  {% endblock favicons %}
+
+  {% block css %}
+  <link rel="stylesheet" href="{{ media_url('css/grid.css') }}">
+  <link rel="stylesheet" href="{{ media_url('css/site.css') }}">
+  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Raleway:100,300">
+  {% endblock css %}
+
+  {% block headjs %}
+  <!-- All JavaScript at the bottom, except for Modernizr which
+        enables HTML5 elements & feature detects -->
+    <script src="{{ media_url('js/libs/modernizr-1.7.min.js') }}"></script>
+  {% endblock headjs %}
+  {% block endhead %}{% endblock endhead %}
+  <style>
+    .header {
+      background-image: url({{ resource.meta.background_image }});
+    }
+  </style>
+</head>
+{% block container %}
+<body>
+    {% block header %}
+    <div class="header">
+        <div class="container">
+            <div class='jumbotron'>
+                <h1>{{ resource.meta.title }}</h1>
+                <p>{{ resource.meta.description }}</p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    {% block content %}
+    <div class="container">
+        {% filter markdown -%}
+        {% block main %}
+        {% endblock main %}
+        {% endfilter %}
+    </div>
+    {% endblock %}
+</body>
+{% endblock %}
+
+  {% block js %}
+  {% block jquery %}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+  {% endblock jquery %}
+
+  {% block scripts %}
+  {% endblock scripts %}
+
+  {% block analytics %}
+  {% include "analytics.j2" %}
+  {% endblock analytics %}
+
+  {% endblock js %}
+</body>
+</html>
